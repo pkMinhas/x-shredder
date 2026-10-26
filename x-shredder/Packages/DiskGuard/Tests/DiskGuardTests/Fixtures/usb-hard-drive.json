@@ -1,0 +1,45 @@
+{
+  "description": {
+    "ancestorClasses": [
+      "IOBlockStorageDriver",
+      "IOSCSIPeripheralDeviceType00",
+      "IOSCSIPeripheralDeviceNub",
+      "IOSCSILogicalUnitNub",
+      "IOUSBMassStorageDriver",
+      "IOUSBMassStorageInterfaceNub",
+      "IOUSBHostInterface",
+      "IOUSBHostDevice",
+      "AppleUSBXHCIPort",
+      "AppleUSBXHCI"
+    ],
+    "blockSize": 512,
+    "bsdMajor": 1,
+    "bsdMinor": 20,
+    "bsdName": "disk5",
+    "busName": "AppleUSBXHCI",
+    "descendantVolumeRoles": [],
+    "deviceModel": "Elements 25A2",
+    "deviceVendor": "WD",
+    "hasMediaAncestor": false,
+    "isEjectable": true,
+    "isInternal": false,
+    "isRemovable": false,
+    "isWhole": true,
+    "isWritable": true,
+    "mediaName": "WD Elements 25A2 Media",
+    "mediaSize": 1000204886016,
+    "protocolName": "USB",
+    "registryEntryID": 4295100002,
+    "serialNumber": "000000000821",
+    "volumeNames": [
+      "Backup"
+    ]
+  },
+  "note": "External USB hard drive, 1 TB, no system volumes. Constructed, not recorded on hardware.",
+  "origin": "constructed",
+  "protectedWholeDisks": [
+    "disk0",
+    "disk1",
+    "disk3"
+  ]
+}

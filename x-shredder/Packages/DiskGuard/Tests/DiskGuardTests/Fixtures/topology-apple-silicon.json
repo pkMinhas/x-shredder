@@ -1,0 +1,168 @@
+{
+  "mounts": [
+    {
+      "device": "/dev/disk3s1s1",
+      "mountPoint": "/"
+    },
+    {
+      "device": "devfs",
+      "mountPoint": "/dev"
+    },
+    {
+      "device": "/dev/disk3s6",
+      "mountPoint": "/System/Volumes/VM"
+    },
+    {
+      "device": "/dev/disk3s2",
+      "mountPoint": "/System/Volumes/Preboot"
+    },
+    {
+      "device": "/dev/disk3s4",
+      "mountPoint": "/System/Volumes/Update"
+    },
+    {
+      "device": "/dev/disk1s2",
+      "mountPoint": "/System/Volumes/xarts"
+    },
+    {
+      "device": "/dev/disk1s1",
+      "mountPoint": "/System/Volumes/iSCPreboot"
+    },
+    {
+      "device": "/dev/disk1s3",
+      "mountPoint": "/System/Volumes/Hardware"
+    },
+    {
+      "device": "/dev/disk3s5",
+      "mountPoint": "/System/Volumes/Data"
+    },
+    {
+      "device": "map auto_home",
+      "mountPoint": "/System/Volumes/Data/home"
+    }
+  ],
+  "nodes": [
+    {
+      "bsdName": "disk0",
+      "isWhole": true,
+      "parents": []
+    },
+    {
+      "bsdName": "disk0s1",
+      "isWhole": false,
+      "parents": [
+        "disk0"
+      ]
+    },
+    {
+      "bsdName": "disk0s2",
+      "isWhole": false,
+      "parents": [
+        "disk0"
+      ]
+    },
+    {
+      "bsdName": "disk0s3",
+      "isWhole": false,
+      "parents": [
+        "disk0"
+      ]
+    },
+    {
+      "bsdName": "disk1",
+      "isWhole": true,
+      "parents": [
+        "disk0s1"
+      ]
+    },
+    {
+      "bsdName": "disk3",
+      "isWhole": true,
+      "parents": [
+        "disk0s2"
+      ]
+    },
+    {
+      "bsdName": "disk1s1",
+      "isWhole": false,
+      "parents": [
+        "disk1"
+      ]
+    },
+    {
+      "bsdName": "disk1s2",
+      "isWhole": false,
+      "parents": [
+        "disk1"
+      ]
+    },
+    {
+      "bsdName": "disk1s3",
+      "isWhole": false,
+      "parents": [
+        "disk1"
+      ]
+    },
+    {
+      "bsdName": "disk1s4",
+      "isWhole": false,
+      "parents": [
+        "disk1"
+      ]
+    },
+    {
+      "bsdName": "disk3s1",
+      "isWhole": false,
+      "parents": [
+        "disk3"
+      ]
+    },
+    {
+      "bsdName": "disk3s2",
+      "isWhole": false,
+      "parents": [
+        "disk3"
+      ]
+    },
+    {
+      "bsdName": "disk3s3",
+      "isWhole": false,
+      "parents": [
+        "disk3"
+      ]
+    },
+    {
+      "bsdName": "disk3s4",
+      "isWhole": false,
+      "parents": [
+        "disk3"
+      ]
+    },
+    {
+      "bsdName": "disk3s5",
+      "isWhole": false,
+      "parents": [
+        "disk3"
+      ]
+    },
+    {
+      "bsdName": "disk3s6",
+      "isWhole": false,
+      "parents": [
+        "disk3"
+      ]
+    },
+    {
+      "bsdName": "disk3s1s1",
+      "isWhole": false,
+      "parents": [
+        "disk3s1"
+      ]
+    },
+    {
+      "bsdName": "disk18",
+      "isWhole": true,
+      "parents": []
+    }
+  ]
+}

@@ -1,0 +1,772 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA0000000000000000000101 /* DiskGuard in Frameworks */ = {isa = PBXBuildFile; productRef = AA0000000000000000000801 /* DiskGuard */; };
+		AA0000000000000000000102 /* Report in Frameworks */ = {isa = PBXBuildFile; productRef = AA0000000000000000000802 /* Report */; };
+		AA0000000000000000000103 /* DiskGuard in Frameworks */ = {isa = PBXBuildFile; productRef = AA0000000000000000000803 /* DiskGuard */; };
+		AA0000000000000000000104 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = AA0000000000000000000804 /* Engine */; };
+		AA0000000000000000000105 /* x-shredder-helper in Embed Helper */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000301 /* x-shredder-helper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		AA0000000000000000000106 /* com.withpreet.x-shredder.helper.plist in Embed Launch Daemon */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000302 /* com.withpreet.x-shredder.helper.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		33E1A2EC307E610500FFBDC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33E1A2D6307E610400FFBDC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 33E1A2DD307E610400FFBDC9;
+			remoteInfo = "x-shredder";
+		};
+		33E1A2F6307E610500FFBDC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33E1A2D6307E610400FFBDC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 33E1A2DD307E610400FFBDC9;
+			remoteInfo = "x-shredder";
+		};
+		AA0000000000000000000602 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33E1A2D6307E610400FFBDC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA0000000000000000000501;
+			remoteInfo = "x-shredder-helper";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AA0000000000000000000201 /* Embed Helper */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				AA0000000000000000000105 /* x-shredder-helper in Embed Helper */,
+			);
+			name = "Embed Helper";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0000000000000000000202 /* Embed Launch Daemon */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LaunchDaemons;
+			dstSubfolderSpec = 1;
+			files = (
+				AA0000000000000000000106 /* com.withpreet.x-shredder.helper.plist in Embed Launch Daemon */,
+			);
+			name = "Embed Launch Daemon";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		33E1A2DE307E610400FFBDC9 /* x-shredder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "x-shredder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33E1A2EB307E610500FFBDC9 /* x-shredderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "x-shredderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33E1A2F5307E610500FFBDC9 /* x-shredderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "x-shredderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0000000000000000000301 /* x-shredder-helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "x-shredder-helper"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0000000000000000000302 /* com.withpreet.x-shredder.helper.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "com.withpreet.x-shredder.helper.plist"; path = "HelperSupport/com.withpreet.x-shredder.helper.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		33E1A2E0307E610400FFBDC9 /* x-shredder */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "x-shredder";
+			sourceTree = "<group>";
+		};
+		33E1A2EE307E610500FFBDC9 /* x-shredderTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "x-shredderTests";
+			sourceTree = "<group>";
+		};
+		33E1A2F8307E610500FFBDC9 /* x-shredderUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "x-shredderUITests";
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000401 /* x-shredder-helper */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "x-shredder-helper";
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000402 /* Shared */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Shared;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33E1A2DB307E610400FFBDC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0000000000000000000101 /* DiskGuard in Frameworks */,
+				AA0000000000000000000102 /* Report in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33E1A2E8307E610500FFBDC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33E1A2F2307E610500FFBDC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0000000000000000000503 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0000000000000000000103 /* DiskGuard in Frameworks */,
+				AA0000000000000000000104 /* Engine in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		33E1A2D5307E610400FFBDC9 = {
+			isa = PBXGroup;
+			children = (
+				33E1A2E0307E610400FFBDC9 /* x-shredder */,
+				AA0000000000000000000401 /* x-shredder-helper */,
+				AA0000000000000000000402 /* Shared */,
+				AA0000000000000000000302 /* com.withpreet.x-shredder.helper.plist */,
+				33E1A2EE307E610500FFBDC9 /* x-shredderTests */,
+				33E1A2F8307E610500FFBDC9 /* x-shredderUITests */,
+				33E1A2DF307E610400FFBDC9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		33E1A2DF307E610400FFBDC9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33E1A2DE307E610400FFBDC9 /* x-shredder.app */,
+				AA0000000000000000000301 /* x-shredder-helper */,
+				33E1A2EB307E610500FFBDC9 /* x-shredderTests.xctest */,
+				33E1A2F5307E610500FFBDC9 /* x-shredderUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		33E1A2DD307E610400FFBDC9 /* x-shredder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33E1A2FF307E610500FFBDC9 /* Build configuration list for PBXNativeTarget "x-shredder" */;
+			buildPhases = (
+				33E1A2DA307E610400FFBDC9 /* Sources */,
+				33E1A2DB307E610400FFBDC9 /* Frameworks */,
+				33E1A2DC307E610400FFBDC9 /* Resources */,
+				AA0000000000000000000201 /* Embed Helper */,
+				AA0000000000000000000202 /* Embed Launch Daemon */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA0000000000000000000601 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				33E1A2E0307E610400FFBDC9 /* x-shredder */,
+				AA0000000000000000000402 /* Shared */,
+			);
+			name = "x-shredder";
+			packageProductDependencies = (
+				AA0000000000000000000801 /* DiskGuard */,
+				AA0000000000000000000802 /* Report */,
+			);
+			productName = "x-shredder";
+			productReference = 33E1A2DE307E610400FFBDC9 /* x-shredder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		33E1A2EA307E610500FFBDC9 /* x-shredderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33E1A302307E610500FFBDC9 /* Build configuration list for PBXNativeTarget "x-shredderTests" */;
+			buildPhases = (
+				33E1A2E7307E610500FFBDC9 /* Sources */,
+				33E1A2E8307E610500FFBDC9 /* Frameworks */,
+				33E1A2E9307E610500FFBDC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				33E1A2ED307E610500FFBDC9 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				33E1A2EE307E610500FFBDC9 /* x-shredderTests */,
+			);
+			name = "x-shredderTests";
+			packageProductDependencies = (
+			);
+			productName = "x-shredderTests";
+			productReference = 33E1A2EB307E610500FFBDC9 /* x-shredderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		33E1A2F4307E610500FFBDC9 /* x-shredderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33E1A305307E610500FFBDC9 /* Build configuration list for PBXNativeTarget "x-shredderUITests" */;
+			buildPhases = (
+				33E1A2F1307E610500FFBDC9 /* Sources */,
+				33E1A2F2307E610500FFBDC9 /* Frameworks */,
+				33E1A2F3307E610500FFBDC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				33E1A2F7307E610500FFBDC9 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				33E1A2F8307E610500FFBDC9 /* x-shredderUITests */,
+			);
+			name = "x-shredderUITests";
+			packageProductDependencies = (
+			);
+			productName = "x-shredderUITests";
+			productReference = 33E1A2F5307E610500FFBDC9 /* x-shredderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		AA0000000000000000000501 /* x-shredder-helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0000000000000000000504 /* Build configuration list for PBXNativeTarget "x-shredder-helper" */;
+			buildPhases = (
+				AA0000000000000000000502 /* Sources */,
+				AA0000000000000000000503 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA0000000000000000000401 /* x-shredder-helper */,
+				AA0000000000000000000402 /* Shared */,
+			);
+			name = "x-shredder-helper";
+			packageProductDependencies = (
+				AA0000000000000000000803 /* DiskGuard */,
+				AA0000000000000000000804 /* Engine */,
+			);
+			productName = "x-shredder-helper";
+			productReference = AA0000000000000000000301 /* x-shredder-helper */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		33E1A2D6307E610400FFBDC9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2660;
+				LastUpgradeCheck = 2660;
+				TargetAttributes = {
+					33E1A2DD307E610400FFBDC9 = {
+						CreatedOnToolsVersion = 26.6;
+					};
+					33E1A2EA307E610500FFBDC9 = {
+						CreatedOnToolsVersion = 26.6;
+						TestTargetID = 33E1A2DD307E610400FFBDC9;
+					};
+					33E1A2F4307E610500FFBDC9 = {
+						CreatedOnToolsVersion = 26.6;
+						TestTargetID = 33E1A2DD307E610400FFBDC9;
+					};
+					AA0000000000000000000501 = {
+						CreatedOnToolsVersion = 26.6;
+					};
+				};
+			};
+			buildConfigurationList = 33E1A2D9307E610400FFBDC9 /* Build configuration list for PBXProject "x-shredder" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 33E1A2D5307E610400FFBDC9;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				AA0000000000000000000701 /* XCLocalSwiftPackageReference "Packages/DiskGuard" */,
+				AA0000000000000000000702 /* XCLocalSwiftPackageReference "Packages/Engine" */,
+				AA0000000000000000000703 /* XCLocalSwiftPackageReference "Packages/Report" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 33E1A2DF307E610400FFBDC9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				33E1A2DD307E610400FFBDC9 /* x-shredder */,
+				AA0000000000000000000501 /* x-shredder-helper */,
+				33E1A2EA307E610500FFBDC9 /* x-shredderTests */,
+				33E1A2F4307E610500FFBDC9 /* x-shredderUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		33E1A2DC307E610400FFBDC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33E1A2E9307E610500FFBDC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33E1A2F3307E610500FFBDC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33E1A2DA307E610400FFBDC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33E1A2E7307E610500FFBDC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33E1A2F1307E610500FFBDC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0000000000000000000502 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		33E1A2ED307E610500FFBDC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 33E1A2DD307E610400FFBDC9 /* x-shredder */;
+			targetProxy = 33E1A2EC307E610500FFBDC9 /* PBXContainerItemProxy */;
+		};
+		33E1A2F7307E610500FFBDC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 33E1A2DD307E610400FFBDC9 /* x-shredder */;
+			targetProxy = 33E1A2F6307E610500FFBDC9 /* PBXContainerItemProxy */;
+		};
+		AA0000000000000000000601 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA0000000000000000000501 /* x-shredder-helper */;
+			targetProxy = AA0000000000000000000602 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		33E1A2FD307E610500FFBDC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = LB2U4476V3;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		33E1A2FE307E610500FFBDC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = LB2U4476V3;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		33E1A300307E610500FFBDC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LB2U4476V3;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.withpreet.x-shredder";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		33E1A301307E610500FFBDC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LB2U4476V3;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.withpreet.x-shredder";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		33E1A303307E610500FFBDC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LB2U4476V3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.withpreet.x-shredderTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/x-shredder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/x-shredder";
+			};
+			name = Debug;
+		};
+		33E1A304307E610500FFBDC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LB2U4476V3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.withpreet.x-shredderTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/x-shredder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/x-shredder";
+			};
+			name = Release;
+		};
+		33E1A306307E610500FFBDC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LB2U4476V3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.withpreet.x-shredderUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "x-shredder";
+			};
+			name = Debug;
+		};
+		33E1A307307E610500FFBDC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LB2U4476V3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.withpreet.x-shredderUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "x-shredder";
+			};
+			name = Release;
+		};
+		AA0000000000000000000505 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LB2U4476V3;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "x-shredder helper";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.withpreet.x-shredder.helper";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		AA0000000000000000000506 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LB2U4476V3;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "x-shredder helper";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.withpreet.x-shredder.helper";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33E1A2D9307E610400FFBDC9 /* Build configuration list for PBXProject "x-shredder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33E1A2FD307E610500FFBDC9 /* Debug */,
+				33E1A2FE307E610500FFBDC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33E1A2FF307E610500FFBDC9 /* Build configuration list for PBXNativeTarget "x-shredder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33E1A300307E610500FFBDC9 /* Debug */,
+				33E1A301307E610500FFBDC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33E1A302307E610500FFBDC9 /* Build configuration list for PBXNativeTarget "x-shredderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33E1A303307E610500FFBDC9 /* Debug */,
+				33E1A304307E610500FFBDC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33E1A305307E610500FFBDC9 /* Build configuration list for PBXNativeTarget "x-shredderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33E1A306307E610500FFBDC9 /* Debug */,
+				33E1A307307E610500FFBDC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA0000000000000000000504 /* Build configuration list for PBXNativeTarget "x-shredder-helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000000000000000000505 /* Debug */,
+				AA0000000000000000000506 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		AA0000000000000000000701 /* XCLocalSwiftPackageReference "Packages/DiskGuard" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/DiskGuard;
+		};
+		AA0000000000000000000702 /* XCLocalSwiftPackageReference "Packages/Engine" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Engine;
+		};
+		AA0000000000000000000703 /* XCLocalSwiftPackageReference "Packages/Report" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Report;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AA0000000000000000000801 /* DiskGuard */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DiskGuard;
+		};
+		AA0000000000000000000802 /* Report */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Report;
+		};
+		AA0000000000000000000803 /* DiskGuard */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DiskGuard;
+		};
+		AA0000000000000000000804 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 33E1A2D6307E610400FFBDC9 /* Project object */;
+}

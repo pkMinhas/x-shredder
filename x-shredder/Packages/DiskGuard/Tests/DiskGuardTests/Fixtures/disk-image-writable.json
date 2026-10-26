@@ -1,0 +1,52 @@
+{
+  "description": {
+    "ancestorClasses": [
+      "IOBlockStorageDriver",
+      "IODiskImageBlockStorageDeviceOutKernel",
+      "IOHDIXHDDriveOutKernel",
+      "IOHDIXController",
+      "IOResources",
+      "IOPlatformExpertDevice",
+      "IORegistryEntry"
+    ],
+    "blockSize": 512,
+    "bsdMajor": 1,
+    "bsdMinor": 48,
+    "bsdName": "disk18",
+    "busName": "device-tree",
+    "descendantVolumeRoles": [],
+    "deviceModel": "Disk Image",
+    "deviceVendor": "Apple",
+    "hasMediaAncestor": false,
+    "isEjectable": true,
+    "isRemovable": true,
+    "isWhole": true,
+    "isWritable": true,
+    "mediaName": "Apple read/write Media",
+    "mediaSize": 17825792,
+    "protocolName": "Virtual Interface",
+    "registryEntryID": 4295203592,
+    "volumeNames": []
+  },
+  "note": "Blank read/write disk image attached with hdiutil. Recorded with diskguard-dump.",
+  "origin": "recorded",
+  "protectedWholeDisks": [
+    "disk0",
+    "disk1",
+    "disk10",
+    "disk11",
+    "disk12",
+    "disk13",
+    "disk14",
+    "disk15",
+    "disk16",
+    "disk17",
+    "disk3",
+    "disk4",
+    "disk5",
+    "disk6",
+    "disk7",
+    "disk8",
+    "disk9"
+  ]
+}

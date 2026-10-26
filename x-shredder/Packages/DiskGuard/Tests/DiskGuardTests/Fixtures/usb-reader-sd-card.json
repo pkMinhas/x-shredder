@@ -1,0 +1,45 @@
+{
+  "description": {
+    "ancestorClasses": [
+      "IOBlockStorageDriver",
+      "IOSCSIPeripheralDeviceType00",
+      "IOSCSIPeripheralDeviceNub",
+      "IOSCSILogicalUnitNub",
+      "IOUSBMassStorageDriver",
+      "IOUSBMassStorageInterfaceNub",
+      "IOUSBHostInterface",
+      "IOUSBHostDevice",
+      "AppleUSBXHCIPort",
+      "AppleUSBXHCI"
+    ],
+    "blockSize": 512,
+    "bsdMajor": 1,
+    "bsdMinor": 20,
+    "bsdName": "disk4",
+    "busName": "AppleUSBXHCI",
+    "descendantVolumeRoles": [],
+    "deviceModel": "STORAGE DEVICE",
+    "deviceVendor": "Generic",
+    "hasMediaAncestor": false,
+    "isEjectable": true,
+    "isInternal": false,
+    "isRemovable": true,
+    "isWhole": true,
+    "isWritable": true,
+    "mediaName": "Generic STORAGE DEVICE Media",
+    "mediaSize": 31914983424,
+    "protocolName": "USB",
+    "registryEntryID": 4295100001,
+    "serialNumber": "000000000821",
+    "volumeNames": [
+      "NO NAME"
+    ]
+  },
+  "note": "SD card in a USB card reader. Constructed from documented DiskArbitration values, not recorded on hardware. Replace with a diskguard-dump recording.",
+  "origin": "constructed",
+  "protectedWholeDisks": [
+    "disk0",
+    "disk1",
+    "disk3"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "description": {
+    "ancestorClasses": [
+      "IOBlockStorageDriver",
+      "AppleSDXCBlockStorageDevice",
+      "AppleSDXCSlot",
+      "AppleSDXC"
+    ],
+    "blockSize": 512,
+    "bsdMajor": 1,
+    "bsdMinor": 20,
+    "bsdName": "disk6",
+    "busName": "AppleSDXC",
+    "descendantVolumeRoles": [],
+    "deviceModel": "SDXC Reader",
+    "deviceVendor": "Apple",
+    "hasMediaAncestor": false,
+    "isEjectable": true,
+    "isInternal": true,
+    "isRemovable": true,
+    "isWhole": true,
+    "isWritable": true,
+    "mediaName": "Apple SDXC Reader Media",
+    "mediaSize": 31914983424,
+    "protocolName": "Secure Digital",
+    "registryEntryID": 4295100003,
+    "volumeNames": [
+      "NO NAME"
+    ]
+  },
+  "note": "SD card in the built-in slot, which reports as internal. Constructed, not recorded on hardware.",
+  "origin": "constructed",
+  "protectedWholeDisks": [
+    "disk0",
+    "disk1",
+    "disk3"
+  ]
+}

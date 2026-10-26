@@ -1,0 +1,53 @@
+{
+  "description": {
+    "ancestorClasses": [
+      "IOBlockStorageDriver",
+      "AppleDiskImageDevice",
+      "AppleDiskImagesController",
+      "IOResources",
+      "IOPlatformExpertDevice",
+      "IORegistryEntry"
+    ],
+    "blockSize": 512,
+    "bsdMajor": 1,
+    "bsdMinor": 20,
+    "bsdName": "disk4",
+    "busName": "device-tree",
+    "descendantVolumeRoles": [],
+    "deviceModel": "Disk Image",
+    "deviceVendor": "Apple",
+    "hasMediaAncestor": false,
+    "isEjectable": true,
+    "isRemovable": true,
+    "isWhole": true,
+    "isWritable": false,
+    "mediaName": "Apple Disk Image Media",
+    "mediaSize": 8994719232,
+    "protocolName": "Virtual Interface",
+    "registryEntryID": 4295098681,
+    "volumeNames": [
+      "iOS 18.2 Simulator Bundle"
+    ]
+  },
+  "note": "Read-only simulator runtime disk image. Recorded with diskguard-dump.",
+  "origin": "recorded",
+  "protectedWholeDisks": [
+    "disk0",
+    "disk1",
+    "disk10",
+    "disk11",
+    "disk12",
+    "disk13",
+    "disk14",
+    "disk15",
+    "disk16",
+    "disk17",
+    "disk3",
+    "disk4",
+    "disk5",
+    "disk6",
+    "disk7",
+    "disk8",
+    "disk9"
+  ]
+}
