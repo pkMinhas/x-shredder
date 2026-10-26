@@ -16,6 +16,9 @@ struct x_shredderApp: App {
             ContentView()
                 .environmentObject(model)
                 .frame(minWidth: 620, minHeight: 520)
+                #if SCREENSHOTS
+                .task { await ScreenshotDriver.run(model) }
+                #endif
         }
         .commands {
             CommandGroup(replacing: .newItem) {}

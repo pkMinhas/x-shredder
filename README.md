@@ -6,6 +6,19 @@ The app never erases internal disks, boot disks, disk images or network volumes.
 
 Requires macOS 13 or later on an Apple silicon Mac. Intel Macs are not supported.
 
+## Screenshots
+
+<table>
+  <tr>
+    <td><picture><source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/1-devices-dark.png"><img src="docs/screenshots/1-devices-light.png" alt="Choosing a card to erase"></picture></td>
+    <td><picture><source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/2-confirm-dark.png"><img src="docs/screenshots/2-confirm-light.png" alt="Confirming the erase"></picture></td>
+  </tr>
+  <tr>
+    <td><picture><source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/3-erasing-dark.png"><img src="docs/screenshots/3-erasing-light.png" alt="Erase in progress"></picture></td>
+    <td><picture><source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/4-result-dark.png"><img src="docs/screenshots/4-result-light.png" alt="Erase result and signed report"></picture></td>
+  </tr>
+</table>
+
 ## Do you love this project? Sponsor it!
 
 Your sponsorship pays for x-shredder maintenance and for building new features.

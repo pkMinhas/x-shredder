@@ -65,6 +65,10 @@ final class AppModel: ObservableObject {
     // MARK: Start-up
 
     func start() {
+        #if SCREENSHOTS
+        // Screenshot builds show sample data only. No disks, no helper.
+        return
+        #else
         guard monitor == nil else { return }
         monitor = DiskMonitor { [weak self] in
             Task { @MainActor [weak self] in self?.scheduleRefresh() }
@@ -72,6 +76,7 @@ final class AppModel: ObservableObject {
         refreshDisks()
         refreshHelperState()
         Task { await reattachIfErasing() }
+        #endif
     }
 
     /// If the app was closed during an erase, pick the run up again.
@@ -118,6 +123,9 @@ final class AppModel: ObservableObject {
     // MARK: Helper
 
     func refreshHelperState() {
+        #if SCREENSHOTS
+        return
+        #else
         helperState = helper.installState
         guard helperState == .enabled else {
             helperNeedsFullDiskAccess = false
@@ -128,6 +136,7 @@ final class AppModel: ObservableObject {
                 helperNeedsFullDiskAccess = status.hasFullDiskAccess == false
             }
         }
+        #endif
     }
 
     func installHelper() {
@@ -259,3 +268,33 @@ final class AppModel: ObservableObject {
         }
     }
 }
+
+#if SCREENSHOTS
+extension AppModel {
+    /// Screenshot builds only. Puts the app in the state of one scene using
+    /// sample data. See ScreenshotMode.swift.
+    func applyScreenshotScene(_ scene: ScreenshotScene) {
+        helperState = .enabled
+        helperNeedsFullDiskAccess = false
+        entries = ScreenshotSamples.entries
+        selection = ScreenshotSamples.card.bsdName
+        showExcluded = true
+        zeroPass = true
+        progress = nil
+        signedReport = nil
+        switch scene {
+        case .devices:
+            screen = .devices
+        case .confirm:
+            screen = .confirm(ScreenshotSamples.card)
+        case .erasing:
+            progress = ScreenshotSamples.progress
+            screen = .erasing(ScreenshotSamples.card)
+        case .result:
+            signedReport = try? ReportBuilder.signedReport(
+                from: ScreenshotSamples.result, keyStore: InMemorySigningKeyStore())
+            screen = .result(ScreenshotSamples.result)
+        }
+    }
+}
+#endif
