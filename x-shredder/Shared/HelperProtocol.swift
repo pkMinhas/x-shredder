@@ -84,6 +84,9 @@ struct HelperStatus: Codable, Equatable {
     /// helper stopped.
     var lastResult: EraseResult?
     var allowsTestDiskImages: Bool
+    /// Whether macOS has given the helper Full Disk Access, without which it
+    /// cannot open the raw disk. `nil` when the helper could not tell.
+    var hasFullDiskAccess: Bool?
 }
 
 enum Wire {

@@ -98,7 +98,7 @@ Builds an Apple silicon (arm64) Release app, checks that the app and helper are 
 
 ## Installing and using
 
-See `INSTALL.md` for getting past Gatekeeper and approving the helper in Login Items, and `USER-GUIDE.md` for erasing a card.
+See `INSTALL.md` for getting past Gatekeeper, approving the helper in Login Items and giving it Full Disk Access, and `USER-GUIDE.md` for erasing a card.
 
 ## License
 

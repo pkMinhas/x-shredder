@@ -32,6 +32,8 @@ final class AppModel: ObservableObject {
     @Published var zeroPass = false
     @Published private(set) var screen = Screen.devices
     @Published private(set) var helperState = HelperInstallState.notRegistered
+    /// True only when the helper reports that it lacks Full Disk Access.
+    @Published private(set) var helperNeedsFullDiskAccess = false
     @Published private(set) var progress: EraseProgressMessage?
     @Published private(set) var signedReport: SignedReport?
     @Published private(set) var isStarting = false
@@ -117,6 +119,15 @@ final class AppModel: ObservableObject {
 
     func refreshHelperState() {
         helperState = helper.installState
+        guard helperState == .enabled else {
+            helperNeedsFullDiskAccess = false
+            return
+        }
+        Task {
+            if let status = try? await helper.status() {
+                helperNeedsFullDiskAccess = status.hasFullDiskAccess == false
+            }
+        }
     }
 
     func installHelper() {
@@ -145,6 +156,11 @@ final class AppModel: ObservableObject {
 
     func openLoginItems() {
         HelperClient.openLoginItemsSettings()
+    }
+
+    func openFullDiskAccess() {
+        HelperClient.openFullDiskAccessSettings()
+        HelperClient.revealHelperInFinder()
     }
 
     // MARK: Flow

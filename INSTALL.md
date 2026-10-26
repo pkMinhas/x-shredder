@@ -33,6 +33,15 @@ Erasing needs a helper that runs with administrator rights.
 3. Under "Allow in the Background", turn on x-shredder.
 4. Go back to x-shredder. The helper notice disappears once it is approved.
 
+## 4. Give the helper Full Disk Access
+
+macOS does not let the helper open the card until it has Full Disk Access, even though it runs with administrator rights. Without it, erasing fails with "Operation not permitted".
+
+1. In x-shredder, click "Open Full Disk Access". This opens System Settings → Privacy & Security → Full Disk Access, and shows `x-shredder-helper` in a Finder window.
+2. Drag `x-shredder-helper` from the Finder window into the list, or click + and choose it (it is in `x-shredder.app/Contents/MacOS`).
+3. Turn on x-shredder-helper.
+4. Go back to x-shredder. The Full Disk Access notice disappears once access is given.
+
 ## Removing it
 
 1. In x-shredder, choose "Remove Helper" from the x-shredder menu.

@@ -40,6 +40,25 @@ final class EraseCoordinator: @unchecked Sendable {
         lock.lock()
         clients.removeAll { $0 === connection }
         lock.unlock()
+        scheduleIdleExit()
+    }
+
+    /// Seconds with no app connected and no erase running before the helper
+    /// exits.
+    static let idleExitDelay: TimeInterval = 5
+
+    /// launchd starts the helper again on the next connection, from the
+    /// binary now inside the app. Without this, a helper started by an older
+    /// build keeps running after the app is rebuilt or updated.
+    private func scheduleIdleExit() {
+        DispatchQueue.global().asyncAfter(deadline: .now() + Self.idleExitDelay) { [self] in
+            lock.lock()
+            let idle = clients.isEmpty && activeBSDName == nil
+            lock.unlock()
+            guard idle else { return }
+            Log.helper.info("No app connected and no erase running. Exiting until launchd starts the helper again.")
+            exit(EXIT_SUCCESS)
+        }
     }
 
     private func broadcast(_ send: (EraseClientProtocol) -> Void) {
@@ -62,7 +81,8 @@ final class EraseCoordinator: @unchecked Sendable {
             activeBSDName: activeBSDName,
             lastProgress: lastProgress,
             lastResult: journal.lastResult,
-            allowsTestDiskImages: Policy.allowsTestDiskImages
+            allowsTestDiskImages: Policy.allowsTestDiskImages,
+            hasFullDiskAccess: FullDiskAccess.check()
         )
     }
 
@@ -139,6 +159,7 @@ final class EraseCoordinator: @unchecked Sendable {
             Log.helper.info("Erase of \(bsdName, privacy: .public) finished, succeeded: \(result.succeeded)")
             let data = Wire.encode(result)
             broadcast { $0.eraseFinished(data) }
+            scheduleIdleExit()
         }
         return nil
     }

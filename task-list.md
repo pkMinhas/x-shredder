@@ -124,6 +124,7 @@ Task IDs follow the plan's phases. Internal-disk protection tasks are tagged `[S
 - [x] 8.1 Sign the app and helper with the personal-team certificate and package as a DMG or zip
   - Note: zip produced by `scripts/package.sh`, Apple silicon (arm64) only
 - [x] 8.2 Write install instructions for unnotarized builds: "Open Anyway" in Privacy & Security (or `xattr -d com.apple.quarantine`), then approve the helper in Login Items
+  - Note: also give the helper Full Disk Access; without it the raw disk open fails with "Operation not permitted"
 - [ ] 8.3 Test installation on a second Mac, on both Apple Silicon and Intel **(HUMAN)**
   - Note: Intel support dropped, Apple silicon only
 - [ ] 8.3a OPTIONAL, public distribution only: sign with Developer ID, enable hardened runtime, notarize and staple **(HUMAN)** (needs the paid account and notarization credentials)

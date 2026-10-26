@@ -25,5 +25,8 @@ enum Wording {
     static let helperNeedsApproval =
         "The helper is installed but not yet approved. Open System Settings, go to General, Login Items, and allow x-shredder."
 
+    static let helperNeedsFullDiskAccess =
+        "The helper needs Full Disk Access to erase. Open System Settings, go to Privacy & Security, Full Disk Access, and turn on x-shredder-helper. If it is not listed, click +, or drag x-shredder-helper from the Finder window into the list."
+
     static let debugBanner = "Debug build: small scratch disk images are selectable for testing."
 }

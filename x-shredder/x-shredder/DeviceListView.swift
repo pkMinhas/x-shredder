@@ -63,7 +63,7 @@ struct DeviceListView: View {
                 Spacer()
                 Button("Continue") { model.continueToConfirmation() }
                     .keyboardShortcut(.defaultAction)
-                    .disabled(model.selectedDisk == nil || model.helperState != .enabled)
+                    .disabled(model.selectedDisk == nil || model.helperState != .enabled || model.helperNeedsFullDiskAccess)
                     .accessibilityHint("Goes to the confirmation step. Nothing is erased yet.")
             }
         }
@@ -130,6 +130,11 @@ struct HelperStatusView: View {
 
     var body: some View {
         switch model.helperState {
+        case .enabled where model.helperNeedsFullDiskAccess:
+            banner(Wording.helperNeedsFullDiskAccess) {
+                Button("Open Full Disk Access") { model.openFullDiskAccess() }
+                    .accessibilityHint("Opens System Settings and shows the helper in Finder.")
+            }
         case .enabled:
             EmptyView()
         case .requiresApproval:

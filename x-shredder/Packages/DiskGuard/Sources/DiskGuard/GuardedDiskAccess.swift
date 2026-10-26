@@ -19,6 +19,8 @@ public enum GuardError: Error, Equatable, CustomStringConvertible {
             return "Disk is not eligible: " + failures.map(\.reason).joined(separator: "; ")
         case .fingerprintUnavailable: return "Could not read the disk identity"
         case .unmountFailed(let detail): return "Could not unmount the disk: \(detail)"
+        case .openFailed(EPERM):
+            return "Could not open the disk exclusively: macOS has not given x-shredder-helper Full Disk Access"
         case .openFailed(let code): return "Could not open the disk exclusively: \(String(cString: strerror(code)))"
         case .deviceNodeMismatch: return "The opened device does not match the validated disk"
         case .fingerprintChanged(let field): return "The disk changed after validation (\(field))"

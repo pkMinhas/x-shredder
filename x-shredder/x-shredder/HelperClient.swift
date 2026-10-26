@@ -1,3 +1,4 @@
+import AppKit
 import Foundation
 import ServiceManagement
 import DiskGuard
@@ -101,6 +102,18 @@ final class HelperClient: @unchecked Sendable {
 
     static func openLoginItemsSettings() {
         SMAppService.openSystemSettingsLoginItems()
+    }
+
+    static func openFullDiskAccessSettings() {
+        guard let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles") else { return }
+        NSWorkspace.shared.open(url)
+    }
+
+    /// Selects the embedded helper in a Finder window, so it can be dragged
+    /// into the Full Disk Access list.
+    static func revealHelperInFinder() {
+        let helper = Bundle.main.bundleURL.appendingPathComponent("Contents/MacOS/x-shredder-helper")
+        NSWorkspace.shared.activateFileViewerSelecting([helper])
     }
 
     // MARK: Connection
