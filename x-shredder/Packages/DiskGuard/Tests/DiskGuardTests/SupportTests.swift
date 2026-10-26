@@ -124,6 +124,16 @@ final class InFlightCheckTests: XCTestCase {
         nowInternal.isInternal = true
         XCTAssertEqual(check(nowInternal), "The target reports as an internal disk")
 
+        let slot = try Fixtures.disk("builtin-sd-slot").description
+        let slotFingerprint = try XCTUnwrap(DiskFingerprint(slot))
+        XCTAssertNil(InFlightCheck.violation(disk: slot, context: fixture.context, fingerprint: slotFingerprint, policy: .standard))
+        var strict = Policy.standard
+        strict.allowBuiltInSDSlot = false
+        XCTAssertEqual(
+            InFlightCheck.violation(disk: slot, context: fixture.context, fingerprint: slotFingerprint, policy: strict),
+            "The target reports as an internal disk"
+        )
+
         XCTAssertNotNil(check(disk, SystemContext(protectedWholeDisks: [disk.bsdName])), "became the boot disk")
         XCTAssertNotNil(check(disk, SystemContext(protectedWholeDisks: nil)), "boot disk unresolved")
 

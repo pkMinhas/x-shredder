@@ -17,7 +17,7 @@ enum Wording {
     static let zeroPassOption = "Add a second pass of zeros"
     static let defaultPassDescription = "One pass of random data"
 
-    static let noEligibleDisks = "No erasable card found. Insert an SD card using a USB card reader."
+    static let noEligibleDisks = "No erasable card found. Insert an SD card in the built-in SD card slot or a USB card reader."
     static let excludedExplanation = "These disks can never be erased by this app."
 
     static let helperNeeded =

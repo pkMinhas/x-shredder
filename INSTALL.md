@@ -2,7 +2,7 @@
 
 This build is signed with a personal-team certificate and is not notarized by Apple. macOS will not open it until you approve it yourself. It is meant for personal use or a small trusted group.
 
-Requires macOS 13 or later. Works on Apple Silicon and Intel Macs.
+Requires macOS 13 or later on an Apple silicon Mac. Intel Macs are not supported.
 
 ## 1. Put the app in Applications
 

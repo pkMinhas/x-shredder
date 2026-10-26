@@ -153,7 +153,9 @@ public enum InFlightCheck {
         policy: Policy
     ) -> String? {
         guard let disk else { return "The disk is no longer present" }
-        if disk.isInternal == true { return "The target reports as an internal disk" }
+        if disk.isInternal == true && !(policy.allowBuiltInSDSlot && Rules.isBuiltInSDSlot(disk)) {
+            return "The target reports as an internal disk"
+        }
         if context.protectedWholeDisks?.contains(disk.bsdName) != false {
             return "The target resolves to a disk that holds the running system"
         }

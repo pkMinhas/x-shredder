@@ -4,10 +4,10 @@ x-shredder erases an SD card by overwriting all of it and then reading all of it
 
 ## What you need
 
-- An SD or microSD card in a USB card reader.
+- An SD or microSD card in the Mac's built-in SD card slot or in a USB card reader.
 - The helper installed and approved. See `INSTALL.md`.
 
-The built-in SD card slot on a Mac does not work with this app. macOS reports that slot as an internal device, and the app never erases internal devices. Use a USB card reader.
+The built-in SD card slot works on Apple silicon Macs that have one.
 
 ## Erasing a card
 

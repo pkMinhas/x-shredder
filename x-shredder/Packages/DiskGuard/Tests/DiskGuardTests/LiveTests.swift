@@ -19,10 +19,11 @@ final class LiveTests: XCTestCase {
         for policy in policies {
             for disk in snapshot.disks {
                 let verdict = DiskGuard.evaluate(disk, context: snapshot.context, policy: policy)
-                if protected.contains(disk.bsdName) || disk.isInternal != false && disk.protocolName != "Virtual Interface" {
+                let slot = Rules.isBuiltInSDSlot(disk)
+                if protected.contains(disk.bsdName) || disk.isInternal != false && disk.protocolName != "Virtual Interface" && !slot {
                     XCTAssertFalse(verdict.isEligible, "\(disk.bsdName) must be refused")
                 }
-                if disk.isInternal == true {
+                if disk.isInternal == true && !slot {
                     XCTAssertTrue(verdict.failures.contains { $0.rule == .notInternal })
                 }
             }

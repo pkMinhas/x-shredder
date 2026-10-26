@@ -1,5 +1,5 @@
 #!/bin/bash
-# Builds the universal (Apple Silicon and Intel) Release app, signed with the personal-team certificate, checks
+# Builds the Apple silicon (arm64) Release app, signed with the personal-team certificate, checks
 # the signatures and writes a zip to dist/.
 set -euo pipefail
 
@@ -22,6 +22,12 @@ if [ -z "$APP_TEAM" ] || [ "$APP_TEAM" = "not set" ] || [ "$APP_TEAM" != "$HELPE
     exit 1
 fi
 test -f "$APP/Contents/Library/LaunchDaemons/com.withpreet.x-shredder.helper.plist"
+for binary in "$APP/Contents/MacOS/x-shredder" "$HELPER"; do
+    if [ "$(lipo -archs "$binary")" != "arm64" ]; then
+        echo "error: $binary must be arm64 only (found: $(lipo -archs "$binary"))" >&2
+        exit 1
+    fi
+done
 
 VERSION="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$APP/Contents/Info.plist")"
 mkdir -p "$ROOT/dist"

@@ -9,7 +9,8 @@ Task IDs follow the plan's phases. Internal-disk protection tasks are tagged `[S
 
 - [ ] 0.1 Sign in to Xcode with a free Apple ID and create a personal-team Apple Development certificate **(HUMAN)**
 - [ ] 0.2 Decide the distribution scope: personal use, small trusted group, or public **(HUMAN)**
-- [ ] 0.3 Decide the built-in SD slot policy: strict (USB reader required) or relaxed **(HUMAN)** `[SAFETY]`
+- [x] 0.3 Decide the built-in SD slot policy: strict (USB reader required) or relaxed **(HUMAN)** `[SAFETY]`
+  - Note: decided: relaxed, the built-in SD card slot is allowed. Applies only to disks under Apple's SDXC driver
 - [ ] 0.4 Approve the allowed-protocol list (default `USB`, `Secure Digital`) and size cap (default 2 TB) **(HUMAN)** `[SAFETY]`
 - [x] 0.5 Set minimum macOS version (13+ for `SMAppService`)
   - Note: set to macOS 13.0
@@ -43,7 +44,7 @@ Task IDs follow the plan's phases. Internal-disk protection tasks are tagged `[S
 - [x] 2.11 Fail closed: any unreadable key counts as a failed rule
 - [x] 2.12 Implement identity fingerprint (registry entry ID, size, block size, protocol) and comparison
 - [x] 2.13 Build recorded-description fixtures: internal SSD, boot disk, built-in SD slot, USB reader with SD card, external USB hard drive, disk image, APFS synthesized container, missing-key cases
-  - Note: internal SSD, boot disk, APFS container and disk image fixtures are recorded from this Mac; the built-in SD slot, USB reader and USB hard drive fixtures are constructed, not recorded on hardware
+  - Note: internal SSD, boot disk, APFS container and disk image fixtures are recorded from this Mac; the built-in SD slot, USB reader and USB hard drive fixtures are constructed, not recorded on hardware (the SD slot driver class chain matches the empty slot on this Mac)
 - [x] 2.14 Write the exhaustive rule test matrix; every internal, virtual, boot and unknown case must be rejected
 - [ ] 2.15 Review the DiskGuard code and tests line by line **(HUMAN)**
 
@@ -121,9 +122,10 @@ Task IDs follow the plan's phases. Internal-disk protection tasks are tagged `[S
 ## Phase 8: Packaging and release
 
 - [x] 8.1 Sign the app and helper with the personal-team certificate and package as a DMG or zip
-  - Note: zip produced by `scripts/package.sh`, universal build
+  - Note: zip produced by `scripts/package.sh`, Apple silicon (arm64) only
 - [x] 8.2 Write install instructions for unnotarized builds: "Open Anyway" in Privacy & Security (or `xattr -d com.apple.quarantine`), then approve the helper in Login Items
 - [ ] 8.3 Test installation on a second Mac, on both Apple Silicon and Intel **(HUMAN)**
+  - Note: Intel support dropped, Apple silicon only
 - [ ] 8.3a OPTIONAL, public distribution only: sign with Developer ID, enable hardened runtime, notarize and staple **(HUMAN)** (needs the paid account and notarization credentials)
 - [x] 8.4 Write the user guide, with the limits of overwrite stated plainly
 - [ ] 8.5 Run a small beta on varied Macs and collect feedback **(HUMAN)**

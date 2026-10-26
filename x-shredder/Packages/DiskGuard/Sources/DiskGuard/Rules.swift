@@ -80,7 +80,9 @@ public enum Rules {
             #endif
             return RuleFailure(rule: .notInternal, reason: "Could not tell if the disk is internal")
         }
-        return isInternal ? RuleFailure(rule: .notInternal, reason: "Internal disk") : nil
+        if !isInternal { return nil }
+        if policy.allowBuiltInSDSlot && isBuiltInSDSlot(d) { return nil }
+        return RuleFailure(rule: .notInternal, reason: "Internal disk")
     }
 
     // MARK: Rule 3
@@ -179,6 +181,26 @@ public enum Rules {
 
     static func isVirtualClass(_ name: String) -> Bool {
         virtualClassPrefixes.contains(where: name.hasPrefix)
+    }
+
+    /// IOKit classes between the Mac's SD card controller and the card, in
+    /// registry order from the card upwards.
+    static let builtInSDSlotClasses = ["AppleSDXCBlockStorageDevice", "AppleSDXCSlot", "AppleSDXC"]
+
+    /// True only for a card in the Mac's built-in SD slot: internal, Secure
+    /// Digital, not layered, and driven directly by Apple's SDXC driver. Any
+    /// missing value means false.
+    public static func isBuiltInSDSlot(_ d: DiskDescription) -> Bool {
+        guard d.isInternal == true,
+              d.protocolName == "Secure Digital",
+              d.hasMediaAncestor == false,
+              let ancestors = d.ancestorClasses,
+              !ancestors.contains(where: isVirtualClass)
+        else { return false }
+        // The block storage driver sits directly under the SDXC block
+        // storage device; the slot and controller follow in order.
+        let chain = ancestors.drop(while: { $0 == "IOBlockStorageDriver" })
+        return Array(chain.prefix(builtInSDSlotClasses.count)) == builtInSDSlotClasses
     }
 
     #if DEBUG

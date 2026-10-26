@@ -14,7 +14,7 @@ final class RuleMatrixTests: XCTestCase {
             ("apfs-synthesized-container", [.notInternal, .notVirtual, .notBootOrSystem, .protocolAllowed]),
             ("disk-image-writable", [.notInternal, .notVirtual, .protocolAllowed]),
             ("disk-image-readonly", [.notInternal, .notVirtual, .protocolAllowed, .writable]),
-            ("builtin-sd-slot", [.notInternal]),
+            ("builtin-sd-slot", nil),
             ("usb-hard-drive-oversize", [.sizeCap]),
             ("usb-drive-with-system-volumes", [.notBootOrSystem]),
             ("usb-external-boot-disk", [.notBootOrSystem]),
@@ -36,12 +36,61 @@ final class RuleMatrixTests: XCTestCase {
         }
     }
 
-    /// The built-in slot fails on rule 2 alone, so relaxing any other rule
-    /// could never let it through (strict policy).
-    func testBuiltInSlotFailsOnlyOnInternal() throws {
+    /// Without the exception, the built-in slot fails on rule 2 alone.
+    func testBuiltInSlotNeedsTheException() throws {
         let fixture = try Fixtures.disk("builtin-sd-slot")
-        let verdict = DiskGuard.evaluate(fixture.description, context: fixture.context, policy: .standard)
+        var strict = Policy.standard
+        strict.allowBuiltInSDSlot = false
+        let verdict = DiskGuard.evaluate(fixture.description, context: fixture.context, policy: strict)
         XCTAssertEqual(verdict.failures.map(\.rule), [.notInternal])
+        XCTAssertTrue(Policy.standard.allowBuiltInSDSlot)
+        XCTAssertFalse(Policy(allowedProtocols: ["USB"], maxSizeBytes: 1).allowBuiltInSDSlot)
+    }
+
+    /// The exception covers only a disk driven by the SDXC slot driver. Every
+    /// other rule still applies to the slot.
+    func testBuiltInSlotExceptionIsNarrow() throws {
+        let slot = try Fixtures.disk("builtin-sd-slot")
+        let ssd = try Fixtures.disk("internal-ssd-boot-disk")
+        XCTAssertTrue(Rules.isBuiltInSDSlot(slot.description))
+        XCTAssertFalse(Rules.isBuiltInSDSlot(ssd.description))
+
+        let notTheSlot: [(String, (inout DiskDescription) -> Void)] = [
+            ("internal unknown", { $0.isInternal = nil }),
+            ("other protocol", { $0.protocolName = "USB" }),
+            ("no protocol", { $0.protocolName = nil }),
+            ("layered", { $0.hasMediaAncestor = true }),
+            ("no ancestors", { $0.ancestorClasses = nil }),
+            ("internal SSD driver", { $0.ancestorClasses = ["IOBlockStorageDriver", "IONVMeBlockStorageDevice", "AppleANS3NVMeController"] }),
+            ("SDXC driver further up", { $0.ancestorClasses = ["IOBlockStorageDriver", "IONVMeBlockStorageDevice", "AppleSDXCBlockStorageDevice", "AppleSDXCSlot", "AppleSDXC"] }),
+            ("slot class missing", { $0.ancestorClasses = ["IOBlockStorageDriver", "AppleSDXCBlockStorageDevice", "AppleSDXC"] }),
+            ("disk image underneath", { $0.ancestorClasses = ["IOBlockStorageDriver", "AppleSDXCBlockStorageDevice", "AppleSDXCSlot", "AppleSDXC", "AppleDiskImageDevice"] }),
+        ]
+        for (label, mutate) in notTheSlot {
+            var disk = slot.description
+            mutate(&disk)
+            XCTAssertFalse(Rules.isBuiltInSDSlot(disk), "\(label) is not the built-in slot")
+            XCTAssertFalse(DiskGuard.evaluate(disk, context: slot.context, policy: .standard).isEligible, "\(label) must be refused")
+        }
+
+        let otherRules: [(String, Rule, (inout DiskDescription) -> Void)] = [
+            ("partition", .wholeDisk, { $0.isWhole = false }),
+            ("holds the running system", .notBootOrSystem, { $0.bsdName = "disk0" }),
+            ("system volumes", .notBootOrSystem, { $0.descendantVolumeRoles = ["System"] }),
+            ("not removable", .removable, { $0.isRemovable = false; $0.isEjectable = false }),
+            ("oversize", .sizeCap, { $0.mediaSize = 4_000_000_000_000 }),
+            ("write-protected", .writable, { $0.isWritable = false }),
+        ]
+        for (label, rule, mutate) in otherRules {
+            var disk = slot.description
+            mutate(&disk)
+            let verdict = DiskGuard.evaluate(disk, context: slot.context, policy: .standard)
+            XCTAssertTrue(verdict.failures.contains { $0.rule == rule }, "slot \(label) must fail \(rule)")
+        }
+
+        var noSecureDigital = Policy.standard
+        noSecureDigital.allowedProtocols = ["USB"]
+        XCTAssertFalse(DiskGuard.evaluate(slot.description, context: slot.context, policy: noSecureDigital).isEligible)
     }
 
     // MARK: Missing keys fail closed
@@ -219,7 +268,7 @@ final class RuleMatrixTests: XCTestCase {
     func testDebugPolicyStillRefusesEverythingElse() throws {
         var debug = Policy.standard
         debug.allowTestDiskImages = true
-        for name in ["internal-ssd-boot-disk", "apfs-synthesized-container", "disk-image-readonly", "builtin-sd-slot", "usb-drive-with-system-volumes", "usb-external-boot-disk", "thunderbolt-ssd"] {
+        for name in ["internal-ssd-boot-disk", "apfs-synthesized-container", "disk-image-readonly", "usb-drive-with-system-volumes", "usb-external-boot-disk", "thunderbolt-ssd"] {
             let fixture = try Fixtures.disk(name)
             XCTAssertFalse(
                 DiskGuard.evaluate(fixture.description, context: fixture.context, policy: debug).isEligible,

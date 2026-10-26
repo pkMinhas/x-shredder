@@ -4,7 +4,8 @@
       "IOBlockStorageDriver",
       "AppleSDXCBlockStorageDevice",
       "AppleSDXCSlot",
-      "AppleSDXC"
+      "AppleSDXC",
+      "IOPCIDevice"
     ],
     "blockSize": 512,
     "bsdMajor": 1,
@@ -12,7 +13,7 @@
     "bsdName": "disk6",
     "busName": "AppleSDXC",
     "descendantVolumeRoles": [],
-    "deviceModel": "SDXC Reader",
+    "deviceModel": "Built In SDXC Reader",
     "deviceVendor": "Apple",
     "hasMediaAncestor": false,
     "isEjectable": true,
@@ -28,7 +29,7 @@
       "NO NAME"
     ]
   },
-  "note": "SD card in the built-in slot, which reports as internal. Constructed, not recorded on hardware.",
+  "note": "SD card in the built-in slot, which reports as internal. Constructed, not recorded with a card inserted. The driver class chain and product name match the empty slot on a Mac14,9.",
   "origin": "constructed",
   "protectedWholeDisks": [
     "disk0",
