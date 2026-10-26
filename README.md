@@ -8,7 +8,8 @@ Requires macOS 13 or later on an Apple silicon Mac. Intel Macs are not supported
 
 ## Status
 
-Built and tested locally. Not yet tested on real SD cards, card readers or the built-in SD card slot, and the helper has not yet been run as an approved launch daemon. See `task-list.md` for what is done and what still needs a person (hardware tests, policy decisions, reviews and sign-off).
+Built and tested locally. 
+
 
 ## How it works
 
@@ -59,19 +60,48 @@ x-shredder/
   Packages/Engine/       Erase engine
   Packages/Report/       Erase report
   x-shredderTests/
-scripts/                 Test, lint, release-flag and packaging scripts
-.github/workflows/       CI
-INSTALL.md               Installing an unnotarized build
+scripts/                 Test, lint and release-flag scripts
 USER-GUIDE.md            Using the app
 implementation-plan.md   Design
 task-list.md             Task status
 ```
 
-## Building
+## Building from source
 
-Open `x-shredder/x-shredder.xcodeproj` in Xcode and build the `x-shredder` scheme. Signing uses a personal-team (free Apple ID) certificate. The build is not notarized.
+There are no prebuilt downloads. Build the app yourself.
 
-Debug builds also list small scratch disk images (256 MB or less) as erasable, for testing. This is compiled out of Release builds.
+1. Open `x-shredder/x-shredder.xcodeproj` in Xcode, signed in with your Apple ID (a free personal team works).
+2. Under Signing & Capabilities, select your own team for both the `x-shredder` and `x-shredder-helper` targets. The app and the helper must be signed by the same team, or they refuse to talk to each other.
+3. Build the Release app:
+
+   ```
+   xcodebuild -project x-shredder/x-shredder.xcodeproj -scheme x-shredder \
+       -configuration Release -derivedDataPath build build
+   ```
+
+4. Move `build/Build/Products/Release/x-shredder.app` to `/Applications`. Do this before installing the helper. The helper is registered at the app's location, so moving the app afterwards breaks the registration.
+
+Debug builds also list small scratch disk images (256 MB or less) as erasable, for testing without a card. This is compiled out of Release builds.
+
+## Setting up the helper
+
+Erasing needs a helper that runs with administrator rights.
+
+1. Open x-shredder and click "Install Helper".
+2. Open System Settings → General → Login Items. Under "Allow in the Background", turn on x-shredder.
+3. Back in x-shredder, click "Open Full Disk Access". This opens System Settings → Privacy & Security → Full Disk Access and shows `x-shredder-helper` in a Finder window.
+4. Drag `x-shredder-helper` from the Finder window into the list, or click + and choose it (it is in `x-shredder.app/Contents/MacOS`). Turn it on.
+5. Go back to x-shredder. The notices disappear once the helper is approved and has Full Disk Access.
+
+macOS does not let the helper open the card without Full Disk Access, even though it runs with administrator rights. Without it, erasing fails.
+
+See `USER-GUIDE.md` for erasing a card.
+
+## Removing it
+
+1. In x-shredder, choose "Remove Helper" from the x-shredder menu.
+2. Delete `/Applications/x-shredder.app`.
+3. Optional: delete `/Library/Application Support/com.withpreet.x-shredder` (needs an administrator). It holds the helper's journal of the last run and the resume checkpoint.
 
 ## Testing
 
@@ -87,18 +117,6 @@ To print the disk descriptions DiskGuard sees on your Mac (read-only):
 cd x-shredder/Packages/DiskGuard
 swift run diskguard-dump
 ```
-
-## Packaging
-
-```
-scripts/package.sh
-```
-
-Builds an Apple silicon (arm64) Release app, checks that the app and helper are arm64 only and signed by the same team, and writes `dist/x-shredder-<version>.zip`.
-
-## Installing and using
-
-See `INSTALL.md` for getting past Gatekeeper, approving the helper in Login Items and giving it Full Disk Access, and `USER-GUIDE.md` for erasing a card.
 
 ## License
 

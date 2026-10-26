@@ -7,14 +7,10 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PROJECT="$ROOT/x-shredder"
 DERIVED="${DERIVED_DATA:-$ROOT/build/DerivedData}"
 MARKER="XSHREDDER-TEST-DISK-IMAGES-ENABLED"
-SIGNING=()
-if [ "${CI:-}" = "true" ]; then
-    SIGNING=(CODE_SIGNING_ALLOWED=NO)
-fi
 
 build() {
     xcodebuild -project "$PROJECT/x-shredder.xcodeproj" -scheme x-shredder \
-        -configuration "$1" -derivedDataPath "$DERIVED" ${SIGNING[@]+"${SIGNING[@]}"} build >/dev/null
+        -configuration "$1" -derivedDataPath "$DERIVED" build >/dev/null
 }
 
 has_marker() {
