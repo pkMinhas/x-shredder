@@ -6,6 +6,15 @@ The app never erases internal disks, boot disks, disk images or network volumes.
 
 Requires macOS 13 or later on an Apple silicon Mac. Intel Macs are not supported.
 
+## Do you love this project? Sponsor it!
+
+Your sponsorship pays for x-shredder maintenance and for building new features.
+
+<p align="center">
+  <a href="https://github.com/sponsors/pkminhas"><img src="https://img.shields.io/badge/Sponsor_on_GitHub-%E2%9D%A4-db61a2?logo=githubsponsors&logoColor=white&style=for-the-badge" alt="Sponsor on GitHub"></a>
+  <a href="https://ko-fi.com/pkminhas"><img src="https://img.shields.io/badge/Support_on_Ko--fi-%E2%98%95-ff5e5b?logo=kofi&logoColor=white&style=for-the-badge" alt="Support on Ko-fi"></a>
+</p>
+
 ## Status
 
 Built and tested locally. 
